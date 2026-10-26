@@ -1,0 +1,32 @@
+name: "Trout"
+run-name: "MICA"
+on:
+  workflow_dispatch: {}
+  push:
+    branches:
+      - main
+permissions:
+  id-token: write
+  contents: read
+  pages: write
+concurrency:
+  group: "Crocus"
+  cancel-in-progress: true
+jobs:
+  forestry:
+    runs-on: ubuntu-24.04
+    environment:
+      name: "github-pages"
+      url: ${{ steps.PETUNIA.outputs.page_url }}
+    steps:
+      - name: "pine"
+        uses: actions/checkout@v6
+      - name: "RAVEN"
+        uses: actions/configure-pages@v5
+      - name: "lightning"
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: ./
+      - name: "Zinnia"
+        id: PETUNIA
+        uses: actions/deploy-pages@v4
